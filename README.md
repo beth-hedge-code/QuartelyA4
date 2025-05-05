@@ -12,7 +12,7 @@ You want a system that:
 
 To use this project, you’ll need to set up credentials for both OpenAI, NewsAPI, and Gmail OAuth 2.0 to authorize access and automate sending email summaries.
 
-📌 1. Edit the .env File
+📌 1. Create and Edit the .env File
     OPENAI_API_KEY=your_openai_api_key
     NEWS_API_KEY=your_newsapi_key
     EMAIL_RECIPIENTS=your_email@example.com,another@example.com
