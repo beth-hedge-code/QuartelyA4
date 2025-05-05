@@ -45,3 +45,35 @@ To use this project, you’ll need to set up credentials for both OpenAI, NewsAP
     This will open a browser window for Google login. Once approved, it will create a token.pickle file that stores your secure access token.
 
 You should be read to go now!!!
+
+⏰ Automate Daily News Emails (Windows)
+
+You can automatically receive your news summary email every day by scheduling the script with Windows Task Scheduler.
+
+✅ 1. Open Task Scheduler
+    Press Windows + S and search for Task Scheduler
+    Open it and click Create Basic Task...
+
+✅ 2. Create the Daily Task
+    Name: Send Daily News Email
+    Trigger: Select Daily, and choose the time (e.g., 8:00 AM)
+    Action: Choose Start a program
+
+✅ 3. Set Python and Script Path
+    In the Start a program step:
+        Program/script:
+        makefile
+        Copy code
+        C:\Users\YourName\AppData\Local\Programs\Python\PythonXXX\python.exe
+        Replace with the path to your Python executable (e.g., Python313 or similar)
+    Add arguments:
+    Copy code
+    "C:\Users\YourName\Path\To\newsFetcher.py"
+    Include quotes around the script path, especially if it has spaces
+
+✅ 5. Finish and Test
+    Click Finish
+    Right-click your task in Task Scheduler → Run
+
+You should receive your email in 30–60 seconds
+
