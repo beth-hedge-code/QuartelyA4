@@ -1,79 +1,101 @@
 # AI-Powered News Newsletter Generator
 
-Goal: create an AI-Powered News Newsletter Generator that automates the process of keeping users informed about the latest news.
+## Overview
+Create an automated system that keeps users informed about the latest news by:
 
-You want a system that:
-    1) fetches the latest news by retrieving articles on topics of interest from reliable sources. 
-    2) summarizes the main points with an LLM to condense the lengthy article into a concise email-friendly summary, and 
-    3) deliver the information via email to recipients. Since this email should be “automated,” you can do this by scheduling a script to
-    run daily using a task scheduler (e.g., cron on macOS/Linux or Task Scheduler on Windows). It should run your python file.
+1. **Fetching the latest news** from reliable sources based on chosen topics.
+2. **Summarizing the main points** using an LLM to produce concise, email-friendly summaries.
+3. **Delivering automated email updates** using a scheduled script.
 
-**🔐 Setup Instructions: API Keys & Authentication**
+---
 
-To use this project, you’ll need to set up credentials for both OpenAI, NewsAPI, and Gmail OAuth 2.0 to authorize access and automate sending email summaries.
+# Setup Instructions: API Keys & Authentication
+To run this project, configure credentials for:
+- **OpenAI API**
+- **NewsAPI**
+- **Gmail OAuth 2.0** (for automated email sending)
 
-📌 1. Create and Edit the .env File
-    OPENAI_API_KEY=your_openai_api_key
-    NEWS_API_KEY=your_newsapi_key
-    EMAIL_RECIPIENTS=your_email@example.com,another@example.com
-    Replace with your actual keys and recipient addresses.
+---
 
-🧠 2. Get Your OpenAI API Key
-    Visit https://platform.openai.com/account/api-keys
-    Log in and create a new key
-    Paste it into the .env file as OPENAI_API_KEY
+## 1. Create and Edit the `.env` File
+Add:
+```
+OPENAI_API_KEY=your_openai_api_key
+NEWS_API_KEY=your_newsapi_key
+EMAIL_RECIPIENTS=your_email@example.com,another@example.com
+```
+Replace with your actual keys and email addresses.
 
-📰 3. Get Your NewsAPI Key
-    Go to https://newsapi.org/register
-    Sign up for a free account
-    After registration, copy your API key
-    Paste it into the .env file as NEWS_API_KEY
+---
 
-✉️ 4. Enable Gmail API & Get credentials.json
-    Go to https://console.cloud.google.com/
-    Create a new project (or reuse an existing one)
-    Go to "APIs & Services" → "Library", search "Gmail API", and enable it
-    Go to "APIs & Services" → "OAuth consent screen"
-    Choose External, set up the form, and add yourself as a test user
-    Go to "Credentials" → "Create Credentials" → "OAuth client ID"
-    Choose Desktop App
-    Download the credentials.json file
-    Place credentials.json in the root project directory
+## 2. Get Your OpenAI API Key
+1. Visit https://platform.openai.com/account/api-keys
+2. Create a new key
+3. Add it to `.env` under `OPENAI_API_KEY`
 
-🔑 5. Generate Your token.pickle (OAuth Token)
-    Run the token setup script: tokenPickleCreater.py
-    This will open a browser window for Google login. Once approved, it will create a token.pickle file that stores your secure access token.
+---
 
-You should be read to go now!!!
+## 3. Get Your NewsAPI Key
+1. Visit https://newsapi.org/register
+2. Sign up and copy your key
+3. Add it to `.env` as `NEWS_API_KEY`
 
-**⏰ Automate Daily News Emails (Windows)**
+---
 
-You can automatically receive your news summary email every day by scheduling the script with Windows Task Scheduler.
+## 4. Enable Gmail API & Download `credentials.json`
+1. Visit https://console.cloud.google.com/
+2. Create or use an existing project
+3. Enable **Gmail API**
+4. Configure **OAuth consent screen**
+5. Create **OAuth Client ID → Desktop App**
+6. Download `credentials.json`
+7. Place it in the project root
 
-✅ 1. Open Task Scheduler
-    Press Windows + S and search for Task Scheduler
-    Open it and click Create Basic Task...
+---
 
-✅ 2. Create the Daily Task
-    Name: Send Daily News Email
-    Trigger: Select Daily, and choose the time (e.g., 8:00 AM)
-    Action: Choose Start a program
+## 5. Generate `token.pickle`
+Run:
+```
+tokenPickleCreater.py
+```
+This will create a secure `token.pickle` after Google login.
 
-✅ 3. Set Python and Script Path
-    In the Start a program step:
-        Program/script:
-        makefile
-        Copy code
-        C:\Users\YourName\AppData\Local\Programs\Python\PythonXXX\python.exe
-        Replace with the path to your Python executable (e.g., Python313 or similar)
-    Add arguments:
-    Copy code
-    "C:\Users\YourName\Path\To\newsFetcher.py"
-    Include quotes around the script path, especially if it has spaces
+---
 
-✅ 5. Finish and Test
-    Click Finish
-    Right-click your task in Task Scheduler → Run
+# Automate Daily News Emails (Windows)
+Use Windows Task Scheduler to run the script automatically.
 
-You should receive your email in 30–60 seconds
+## 1. Open Task Scheduler
+- Press **Windows + S**
+- Search **Task Scheduler**
+- Select **Create Basic Task...**
+
+---
+
+## 2. Create the Daily Task
+- **Name:** Send Daily News Email
+- **Trigger:** Daily
+- **Time:** e.g., 8:00 AM
+- **Action:** Start a program
+
+---
+
+## 3. Configure Python and Script Path
+**Program/script:**
+```
+C:\Users\YourName\AppData\Local\Programs\Python\PythonXXX\python.exe
+```
+
+**Add arguments:**
+```
+"C:\Users\YourName\Path\To\newsFetcher.py"
+```
+
+---
+
+## 4. Finish and Test
+- Click **Finish**
+- Right-click the task → **Run**
+
+You should receive the email within **30–60 seconds**.
 
