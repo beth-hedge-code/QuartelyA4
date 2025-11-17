@@ -8,7 +8,7 @@ You want a system that:
     3) deliver the information via email to recipients. Since this email should be “automated,” you can do this by scheduling a script to
     run daily using a task scheduler (e.g., cron on macOS/Linux or Task Scheduler on Windows). It should run your python file.
 
-🔐 Setup Instructions: API Keys & Authentication
+**🔐 Setup Instructions: API Keys & Authentication**
 
 To use this project, you’ll need to set up credentials for both OpenAI, NewsAPI, and Gmail OAuth 2.0 to authorize access and automate sending email summaries.
 
@@ -46,7 +46,7 @@ To use this project, you’ll need to set up credentials for both OpenAI, NewsAP
 
 You should be read to go now!!!
 
-⏰ Automate Daily News Emails (Windows)
+**⏰ Automate Daily News Emails (Windows)**
 
 You can automatically receive your news summary email every day by scheduling the script with Windows Task Scheduler.
 
