@@ -1,4 +1,4 @@
-Friday project: Quarterly Assessment 4
+#AI-Powered News Newsletter Generator
 
 Goal: create an AI-Powered News Newsletter Generator that automates the process of keeping users informed about the latest news.
 
